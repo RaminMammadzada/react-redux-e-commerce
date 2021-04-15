@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
+import { auth } from '../../firebase/firebase.utils';
 import './header.styles.scss';
 import { ReactComponent as Logo } from '../../assets/logo.svg';
 
@@ -30,7 +30,7 @@ const Header = ({ currentUser }) => (
             SIGN OUT
           </div>
         ) : (
-          <Link className="option" to="/signin" onClick={signInWithGoogle}>
+          <Link className="option" to="/signin">
             SIGN IN
           </Link>
         )
