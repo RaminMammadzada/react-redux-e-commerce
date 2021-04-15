@@ -19,11 +19,12 @@ const Header = ({ currentUser }) => (
       </Link>
       {
         currentUser ? (
+          // eslint-disable-next-line jsx-a11y/click-events-have-key-events
           <div
             role="button"
             tabIndex="0"
             className="option"
-            onKeyDown={() => auth.signOut()}
+            onClick={() => auth.signOut()}
           >
             SIGN OUT
           </div>
