@@ -37,7 +37,7 @@ MenuItem.propTypes = {
   size: PropTypes.string.isRequired,
   history: PropTypes.arrayOf.isRequired,
   linkUrl: PropTypes.string.isRequired,
-  match: PropTypes.arrayOf.isRequired,
+  match: PropTypes.shape.isRequired,
 };
 
 export default withRouter(MenuItem);

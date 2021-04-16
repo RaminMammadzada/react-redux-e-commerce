@@ -20,8 +20,13 @@ const CustomButton = ({
 
 CustomButton.propTypes = {
   children: PropTypes.node.isRequired,
-  isGoogleSignIn: PropTypes.bool.isRequired,
-  inverted: PropTypes.bool.isRequired,
+  isGoogleSignIn: PropTypes.bool,
+  inverted: PropTypes.bool,
+};
+
+CustomButton.defaultProps = {
+  inverted: false,
+  isGoogleSignIn: false,
 };
 
 export default CustomButton;

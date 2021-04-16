@@ -23,7 +23,11 @@ const CollectionPreview = ({ title, items }) => (
 
 CollectionPreview.propTypes = {
   title: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf.isRequired,
+  items: PropTypes.arrayOf(PropTypes.shape),
+};
+
+CollectionPreview.defaultProps = {
+  items: [],
 };
 
 export default CollectionPreview;

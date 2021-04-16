@@ -60,7 +60,11 @@ class App extends Component {
 
 App.propTypes = {
   setCurrentUser: PropTypes.func.isRequired,
-  currentUser: PropTypes.node.isRequired,
+  currentUser: PropTypes.objectOf(PropTypes.any),
+};
+
+App.defaultProps = {
+  currentUser: {},
 };
 
 const mapStateToProps = ({ user }) => ({

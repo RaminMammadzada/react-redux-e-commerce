@@ -20,7 +20,7 @@ const CartItem = ({
 );
 
 CartItem.propTypes = {
-  item: PropTypes.node.isRequired,
+  item: PropTypes.shape.isRequired,
 };
 
 export default CartItem;

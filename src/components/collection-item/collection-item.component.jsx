@@ -34,8 +34,12 @@ const CollectionItem = ({ item, addItem }) => {
 };
 
 CollectionItem.propTypes = {
-  item: PropTypes.node.isRequired,
+  item: PropTypes.objectOf(PropTypes.any),
   addItem: PropTypes.func.isRequired,
+};
+
+CollectionItem.defaultProps = {
+  item: {},
 };
 
 const mapDispatchToProps = (dispatch) => ({
