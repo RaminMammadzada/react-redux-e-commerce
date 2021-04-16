@@ -5,7 +5,7 @@ import { toogleCartHidden } from '../../redux/cart/cart.actions';
 import { ReactComponent as ShoppingIcon } from '../../assets/shopping-bag.svg';
 import './cart-icon.styles.scss';
 
-const CartIcon = ({ toogleCartHidden }) => (
+const CartIcon = ({ toogleCartHidden, itemCount }) => (
   // eslint-disable-next-line jsx-a11y/click-events-have-key-events
   <div
     className="cart-icon"
@@ -14,16 +14,24 @@ const CartIcon = ({ toogleCartHidden }) => (
     tabIndex="0"
   >
     <ShoppingIcon className="shopping-icon" />
-    <span className="item-count">0</span>
+    <span className="item-count">{itemCount}</span>
   </div>
 );
 
 CartIcon.propTypes = {
   toogleCartHidden: PropTypes.func.isRequired,
+  itemCount: PropTypes.number.isRequired,
 };
+
+const mapStateToProps = ({ cart: { cartItems } }) => ({
+  itemCount: cartItems.reduce(
+    (accumulatedQuantity, cartItem) => accumulatedQuantity + cartItem.quantity,
+    0,
+  ),
+});
 
 const mapDispatchToProps = (dispatch) => ({
   toogleCartHidden: () => dispatch(toogleCartHidden()),
 });
 
-export default connect(null, mapDispatchToProps)(CartIcon);
+export default connect(mapStateToProps, mapDispatchToProps)(CartIcon);
