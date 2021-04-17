@@ -7869,16 +7869,6 @@
   "resolved" "https://registry.npmjs.org/lodash.camelcase/-/lodash.camelcase-4.3.0.tgz"
   "version" "4.3.0"
 
-"lodash.debounce@^4.0.8":
-  "integrity" "sha1-gteb/zCmfEAF/9XiUVMArZyk168="
-  "resolved" "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz"
-  "version" "4.0.8"
-
-"lodash.isequal@^4.5.0":
-  "integrity" "sha1-QVxEePK8wwEgwizhDtMib30+GOA="
-  "resolved" "https://registry.npmjs.org/lodash.isequal/-/lodash.isequal-4.5.0.tgz"
-  "version" "4.5.0"
-
 "lodash.memoize@^4.1.2":
   "integrity" "sha1-vMbEmkKihA7Zl/Mj6tpezRguC/4="
   "resolved" "https://registry.npmjs.org/lodash.memoize/-/lodash.memoize-4.1.2.tgz"
@@ -10341,14 +10331,6 @@
   "integrity" "sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-17.0.1.tgz"
   "version" "17.0.1"
-
-"react-persist@^1.0.2":
-  "integrity" "sha512-IB+AthS5K+DTvHBvcBjYzmaNBpWi6zFWK7RYuhUMDtuQOQ3Umuom2VUf7pfJUJCoXyMVxLo2fxIn3YiZyUA8Qg=="
-  "resolved" "https://registry.npmjs.org/react-persist/-/react-persist-1.0.2.tgz"
-  "version" "1.0.2"
-  dependencies:
-    "lodash.debounce" "^4.0.8"
-    "lodash.isequal" "^4.5.0"
 
 "react-redux@^7.2.3":
   "integrity" "sha512-ZhAmQ1lrK+Pyi0ZXNMUZuYxYAZd59wFuVDGUt536kSGdD0ya9Q7BfsE95E3TsFLE3kOSFp5m6G5qbatE+Ic1+w=="
