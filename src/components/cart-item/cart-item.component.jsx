@@ -20,7 +20,11 @@ const CartItem = ({
 );
 
 CartItem.propTypes = {
-  item: PropTypes.shape.isRequired,
+  item: PropTypes.objectOf(PropTypes.any),
+};
+
+CartItem.defaultProps = {
+  item: {},
 };
 
 export default CartItem;
