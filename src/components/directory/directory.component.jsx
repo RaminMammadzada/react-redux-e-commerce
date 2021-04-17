@@ -28,11 +28,11 @@ const Directory = ({ sections }) => (
 );
 
 Directory.propTypes = {
-  sections: PropTypes.objectOf(PropTypes.any),
+  sections: PropTypes.arrayOf(PropTypes.any),
 };
 
 Directory.defaultProps = {
-  sections: {},
+  sections: [],
 };
 
 const mapStateToProps = createStructuredSelector({
