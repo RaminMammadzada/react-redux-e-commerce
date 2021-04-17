@@ -34,10 +34,15 @@ const MenuItem = ({
 MenuItem.propTypes = {
   title: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
-  size: PropTypes.string.isRequired,
-  history: PropTypes.arrayOf.isRequired,
+  size: PropTypes.string,
+  history: PropTypes.objectOf(PropTypes.any).isRequired,
   linkUrl: PropTypes.string.isRequired,
-  match: PropTypes.shape.isRequired,
+  match: PropTypes.objectOf(PropTypes.any),
+};
+
+MenuItem.defaultProps = {
+  match: [],
+  size: '0',
 };
 
 export default withRouter(MenuItem);
