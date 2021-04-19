@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
@@ -10,45 +9,51 @@ import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import { selectCartHidden } from '../../redux/cart/cart.selectors';
 import selectCurrentUser from '../../redux/user/user.selector';
 
-import './header.styles.scss';
 import { ReactComponent as Logo } from '../../assets/logo.svg';
 
+import {
+  HeaderContainer,
+  LogoContainer,
+  OptionsContainer,
+  OptionDiv,
+  OptionLink,
+} from './header.styles';
+
 const Header = ({ currentUser, hidden }) => (
-  <div className="header">
-    <Link className="logo-container" to="/">
+  <HeaderContainer>
+    <LogoContainer to="/">
       <Logo className="logo" />
-    </Link>
-    <div className="options">
-      <Link className="option" to="/shop">
+    </LogoContainer>
+    <OptionsContainer>
+      <OptionLink to="/shop">
         SHOP
-      </Link>
-      <Link className="option" to="/contact">
+      </OptionLink>
+      <OptionLink to="/contact">
         CONTACT
-      </Link>
+      </OptionLink>
       {
         currentUser ? (
           // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-          <div
+          <OptionDiv
             role="button"
             tabIndex="0"
-            className="option"
             onClick={() => auth.signOut()}
           >
             SIGN OUT
-          </div>
+          </OptionDiv>
         ) : (
-          <Link className="option" to="/signin">
+          <OptionLink to="/signin">
             SIGN IN
-          </Link>
+          </OptionLink>
         )
       }
       <CartIcon />
-    </div>
+    </OptionsContainer>
     {
       hidden ? null
         : <CartDropdown />
     }
-  </div>
+  </HeaderContainer>
 );
 
 Header.propTypes = {
