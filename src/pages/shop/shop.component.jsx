@@ -2,17 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
-import { createStructuredSelector } from 'reselect';
 
-import CollectionsOverview from '../../components/collections-overview/collections-overview.component';
-import CollectionPage from '../collection/collection.component';
+import CollectionsOverviewContainer from '../../components/collections-overview/collections-overview.container';
+import CollectionPageContainer from '../collection/collection.container';
 
 import { fetchCollectionsStartAsync } from '../../redux/shop/shop.actions';
-import { selectIsCollectionFetching, selectIsCollectionLoaded } from '../../redux/shop/shop.selectors';
-import WithSpinner from '../../components/with-spinner/with-spinner.component';
-
-const CollectionOverviewWithSpinner = WithSpinner(CollectionsOverview);
-const CollectionPageWithSpinner = WithSpinner(CollectionPage);
 
 class ShopPage extends Component {
   componentDidMount() {
@@ -21,23 +15,17 @@ class ShopPage extends Component {
   }
 
   render() {
-    const { match, isCollectionFetching, isCollectionLoaded } = this.props;
+    const { match } = this.props;
     return (
       <div className="shop-page">
         <Route
           exact
           path={`${match.path}`}
-          render={
-          // eslint-disable-next-line react/jsx-props-no-spreading
-            (props) => <CollectionOverviewWithSpinner isLoading={isCollectionFetching} {...props} />
-          }
+          component={CollectionsOverviewContainer}
         />
         <Route
           path={`${match.path}/:collectionId`}
-          render={
-          // eslint-disable-next-line react/jsx-props-no-spreading
-            (props) => <CollectionPageWithSpinner isLoading={!isCollectionLoaded} {...props} />
-          }
+          component={CollectionPageContainer}
         />
       </div>
     );
@@ -46,9 +34,6 @@ class ShopPage extends Component {
 
 ShopPage.propTypes = {
   match: PropTypes.objectOf(PropTypes.any),
-  updateCollections: PropTypes.func.isRequired,
-  isCollectionFetching: PropTypes.bool.isRequired,
-  isCollectionLoaded: PropTypes.func.isRequired,
   fetchCollectionsStartAsync: PropTypes.func.isRequired,
 };
 
@@ -56,16 +41,11 @@ ShopPage.defaultProps = {
   match: {},
 };
 
-const mapStateToProps = createStructuredSelector({
-  isCollectionFetching: selectIsCollectionFetching,
-  isCollectionLoaded: selectIsCollectionLoaded,
-});
-
 const mapDispatchToProps = (dispatch) => ({
   fetchCollectionsStartAsync: () => dispatch(fetchCollectionsStartAsync()),
 });
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps,
 )(ShopPage);
