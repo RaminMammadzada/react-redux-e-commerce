@@ -34,7 +34,7 @@ class SignUp extends Component {
     }
 
     const { signUpStart } = this.props;
-    signUpStart(email, password, displayName);
+    signUpStart({ email, password, displayName });
   }
 
   handleChange = (event) => {
@@ -101,8 +101,8 @@ SignUp.propTypes = {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  signUpStart: (email, password, displayName) => dispatch(
-    signUpStart({ email, password, displayName }),
+  signUpStart: (userCredentials) => dispatch(
+    signUpStart(userCredentials),
   ),
 });
 
