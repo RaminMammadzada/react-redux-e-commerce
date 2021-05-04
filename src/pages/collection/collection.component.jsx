@@ -8,6 +8,21 @@ import CollectionItem from '../../components/collection-item/collection-item.com
 import './collection.styles.scss';
 
 const CollectionPage = ({ collection }) => {
+  // The collowing code includes cleanup code inside useEffect hook,
+  // which is equalent to componentWillUnmount. This is for note purpose only.
+  // .........
+  // useEffect(() => {
+  //   console.log('I am subscribing');
+  //   const unsubscribeFromCollections = firestore
+  //     .collection('collections')
+  //     .onSnapshot((snapshot) => console.log(snapshot));
+
+  //   return () => {
+  //     console.log('I am unsubscribing');
+  //     unsubscribeFromCollections();
+  //   };
+  // }, []);
+
   const { title, items } = collection;
   return (
     <div className="collection-page">
